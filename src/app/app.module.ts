@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { UsersComponent } from './users/users.component';
@@ -11,6 +10,17 @@ import { UserComponent } from './users/user/user.component';
 import { EditServerComponent } from './servers/edit-server/edit-server.component';
 import { ServerComponent } from './servers/server/server.component';
 import { ServersService } from './servers/servers.service';
+import { RouterModule, Routes } from '@angular/router';
+
+/**
+ * Aquí definimos todas las rutas de nuestra aplicación
+ * y el componente que debería devolver cada una de ellas
+ */
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent },
+  { path: 'users', component: UsersComponent },
+  { path: 'servers', component: ServersComponent }
+];
 
 @NgModule({
   declarations: [
@@ -25,6 +35,8 @@ import { ServersService } from './servers/servers.service';
   imports: [
     BrowserModule,
     FormsModule,
+    // Aquí registramos nuestras rutas para que funcionen
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [ServersService],
   bootstrap: [AppComponent]
