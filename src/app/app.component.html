@@ -5,9 +5,23 @@
         <!-- Utilizamos routerLink para que Angular gestione la carga de
         la nueva vista sin refrescar la página, que es el comporamiento
         por defecto de href -->
-        <li role="presentation" class="active"><a routerLink="/">Home</a></li>
-        <li role="presentation"><a routerLink="/servers">Servers</a></li>
-        <li role="presentation"><a routerLink="/users">Users</a></li>
+        <!-- Utilizamos routerLinkActive para que se marque sólo la pestaña
+        que está seleccionada -->
+        <!-- Utilizamos routerLinkActiveOptions para que marque la pestaña
+        cuya ruta coincide de forma exacta con la ruta especificada -->
+        <li role="presentation" 
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">
+            <a routerLink="/">Home</a>
+        </li>
+        <li role="presentation" 
+            routerLinkActive="active">
+            <a routerLink="/servers">Servers</a>
+        </li>
+        <li role="presentation" 
+            routerLinkActive="active">
+            <a routerLink="/users">Users</a>
+        </li>
       </ul>
     </div>
   </div>
